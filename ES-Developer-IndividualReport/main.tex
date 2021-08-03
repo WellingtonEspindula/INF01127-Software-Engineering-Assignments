@@ -1,0 +1,89 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+% \usepackage{pdflscape}
+\usepackage{rotating}
+% \usepackage{lscape}
+\usepackage{amssymb}
+\usepackage{indentfirst}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[portuguese]{babel}
+\usepackage{geometry}
+\geometry{legalpaper, a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm}
+\setlength{\voffset}{-10mm}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+
+\newcommand{\tit}[1]{\textit{#1}}
+\newcommand{\tb}[1]{\textbf{#1}}
+\newcommand{\tbi}[1]{\textbf{\textit{#1}}}
+
+\newcommand{\bitem}[2]{ \tb{(\tit{#1}) {#2}}}
+\newcommand{\iitem}[1]{(\tit{#1})}
+
+\newcommand{\oo}{orientação à objetos}
+\newcommand{\sw}{software}
+\newcommand{\ssw}{software }
+\newcommand{\vv}{V\&V}
+
+\newcommand{\question}[1]{\item {#1}}
+\newcommand{\answer}[1]{\par \tb{Resposta:} #1}
+
+\newcommand{\quotes}[1]{``#1''}
+
+\title{INF01127 - Relatório Individual}
+
+\author{Wellington M. Espindula}
+\date{Maio de 2021}
+
+\begin{document}
+    \maketitle
+    
+    \section{Product Owner}
+    Em meio a muitas reuniões e discussões, posso afirmar que a etapa de Product Owner, para mim - que me identifico mais com um perfil técnico -, sem dúvidas foi a parte mais desafiadora. Nessa etapa, tivemos que expôr ideias, lidar com antíteses, ser criativos e pensar sobretudo no cliente e no que gostaríamos que o nosso produto fosse capaz de resolver para estes. Para tanto, das vastas possibilidades que a \tit{Internet of Things} oferece, surgiram várias ideias no grupo, desde aplicações de segurança até \tit{Internet of Medical Things.} Sendo assim, pensamos em criar uma solução que pudesse lidar com monitores pré-existentes em um hospital, tornado-os inteligentes e interconectando-os através de IoT a fim de criarmos alertas redirecionados aos médicos com o propósito de diminuir o tempo de resposta da equipe médica à emergências. 
+    
+    A partir do momento que tivemos essa ideia e quisemos segui-la, tivemos que destrinchá-la para pensarmos em como a venderíamos para um cliente e como seria a sua experiência com o produto. Assim tivemos que pensar em quais seriam as condições de uso, como o usuário gostaria de usá-lo e quais \tit{features} iríamos ou não adicionar. E talvez isso tenha sido tão difícil quanto pensar na ideia do produto em si. Mas como sempre lidamos com esses problemas em grupo, pensando e discutindo sempre de forma coletiva, o peso da tarefa se dividiu e pudemos idealizar o produto e descrevê-lo, possibilitanto dar prosseguimento ao desenvolvimento - com uma visão um pouco mais clara do almejávamos.
+    
+    \section{Developer}
+    Para a etapa de desenvolvimento, o maior desafio foi o processo de planejamento da arquitetura do software. Para tal, envolvemos diversas reuniões em grupo a fim de desenvolvermos uma arquitetura limpa, com módulos com baixo acoplamento e altamente coesos. Inicialmente, imaginamos uma arquitetura totalmente centralizada através de um \ssw central que iria ficar monitorando e realizando o controle de tudo. Após o \tit{feedback} da etapa 2, resolvemos realizar uma mudança arquitetural brusca buscando uma maior descentralização dos componentes entre si e comunicação direta entre os dispositivos. Entretanto, ainda foi necessário um componente intermediário chamado \tit{DataCenter} para a persistência de dados (como \tit{Logs} dos dispositivos e registros de pacientes). 
+    
+    Apesar disso, o processo de desenvolvimento não foi tão linear quanto possa aparecer. A arquitetura foi se modificando ao longo do processo de desenvolvimento a fim de gerar códigos limpos e concisos com uma arquitetura consistente e módulos muito bem distribuídos. Em relação ao processo de desenvolvimento, inicialmente, coletivamente, definimos as classes bases do sistema (componentes principais, interfaces e classes abstratas). A partir de então, o trabalho foi mais distribuído produzindo as implementações e a orquestração. Em particular, eu fui responsável pelo desenvolvimento da interface do app (app de um médico) - muito embora meus colegas tenham sido altamente prestativos e tenham realizados muitas contribuições significativas no mesmo -, e atuei ativamente na orquestração dos componentes e em demais tarefas do desenvolvimento.
+    
+    Por fim, posso afirmar que o trabalho me agregou muito em como eu enxergo o desenvolvimento de \sw, aumentando a minha visão panorâmica sobre o desenvolvimento desde a sua concepção. Acredito que ter um grupo unido discutindo todas as etapas do processo colaborou muito para isto. Dessa forma, o trabalho em grupo possibilitou pormos em prática o que vimos ao longo do semestre, agregando tanto o conhecimento teórico e prático de forma a consolidarmos o conhecimento da disciplina.
+    
+
+    
+\end{document}

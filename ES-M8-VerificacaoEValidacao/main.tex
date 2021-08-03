@@ -1,0 +1,118 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+% \usepackage{pdflscape}
+\usepackage{rotating}
+% \usepackage{lscape}
+\usepackage{amssymb}
+\usepackage{indentfirst}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[portuguese]{babel}
+\usepackage{geometry}
+\geometry{legalpaper, a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm}
+\setlength{\voffset}{-10mm}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+
+\newcommand{\tit}[1]{\textit{#1}}
+\newcommand{\tb}[1]{\textbf{#1}}
+\newcommand{\tbi}[1]{\textbf{\textit{#1}}}
+
+\newcommand{\bitem}[2]{ \tb{(\tit{#1}) {#2}}}
+\newcommand{\iitem}[1]{(\tit{#1})}
+
+\newcommand{\oo}{orientação à objetos}
+\newcommand{\sw}{software}
+\newcommand{\ssw}{software }
+\newcommand{\vv}{V\&V}
+
+\newcommand{\question}[1]{\item {#1}}
+\newcommand{\answer}[1]{\par \tb{Resposta:} #1}
+
+\newcommand{\quotes}[1]{``#1''}
+
+\title{Módulo 8 - Atividade Individual \\
+  \large Validação e Verificação}
+
+\author{Wellington M. Espindula}
+\date{Maio de 2021}
+
+\begin{document}
+    \maketitle
+    
+    \begin{enumerate}[label=\textbf{\arabic*.}]
+        % Question 1
+        \question{Considerando abordagens de Verificação e Validação (\vv), qual a diferença entre abordagens estáticas e dinâmicas? Escolha duas abordagens de \vv \ (uma estática e uma dinâmica) e indique como cada abordagem poderia ser incorporada em um processo de desenvolvimento de software incremental.}
+        \answer{
+            As abordagens de \vv \ \tb{estáticas envolvem a validação e inspeção dos artefatos sem a execução do produto}; dessa forma, nas \tb{análises estáticas se fazem inspeções de \ssw} (usando por exemplo \tit{linters} ou Analisadores Estáticos de Programa) . Já na análise \vv \  \tb{dinâmica se faz necessária a execução do código} (ou trechos de código) de forma a testá-lo \tb{almejando descobrir novos erros, falhas ou \tit{bugs} em nível de execução}, para tanto pode-se utilizar testes de \ssw de diferentes níveis. \\
+            Em processos incrementais, faz-se imprescindível o uso de \vv \ ao longo do desenvolvimento bem como no fim do desenvolvimento de cada um dos incrementos. Para tanto, abordagens estáticas como inspeção de \ssw através de \tit{code reviews} juntamente com análise estática de código com uso de ferramentas como \tit{linters} podem e devem ser utilizadas ao longo do processo de desenvolvimento de cada incremento. Dito isso, \tb{a revisão moderna de código é um processo informal a ser utilizado a fim de fazer revisão regular do código, o aperfeiçoando e compartilhando conhecimento entre os desenvolvedores; sendo assim, é uma abordagem que se encaixa bem ao processo de desenvolvimento incremental.} \\
+            Já abordagens dinâmicas como \tb{testes automatizados também são bem-vindas no modelo incremental, dado que podem ser incrementados ao passo que funcionalidades são implementadas.} Testes unitários, por exemplo, podem ser realizados juntamente ao processo de desenvolvimento de cada módulo e serve também como documentação. Portanto, ao longo do processo do desenvolvimento de um incremento é importante também focar no desenvolvimento de testes unitários e de integração. Já no fim de uma iteração, faz-se necessário testes de sistema e aceitação a fim de homologar e validar de acordo com seus princípios e requisitos dos usuários. \\
+            Por fim, existem diversas ferramentas (CI/CD) que existem para auxiliar desenvolvedores nesses casos, como, por exemplo, o Gitlab que fornece a possibilidade de integrar os processos estáticos e dinâmicos de \vv \ e realizar \tit{code reviews} em códigos, controle de versionamento, análises estáticas de código, rodar testes automatizados, construir os projetos e afins.
+        } \newpage
+        
+        % Question 2
+        \question{Quais são as dimensões do teste de software e o que caracteriza cada uma? Cite um exemplo de cada dimensão.}
+        \answer{As dimensões de teste são as seguintes:
+            \begin{itemize}
+                \item \tb{Técnicas de Teste:} Versará sobre como os aspectos do \ssw ou componentes serão testados; Dessa forma, temos \bitem{i}{Teste Caixa-Preta}: Verificará a funcionalidade, sendo assim, se para as entradas do módulo a saída gerará os resultados esperados; \bitem{ii}{Teste Caixa-Branca}: Fará asserções acerca da estrutura do software.
+                
+                \item \tb{Níveis de Teste:} São os estágios ou estratégias que estão sendo utilizados para testar o \sw. São estes: \bitem{i}{Teste de Unidade}: Fará asserções sobre comportamentos e estruturas de um determinado módulo; \bitem{ii}{Teste de Integração}: Fará asserções sobre a interligação entre os módulos; \bitem{iii}{Teste de Sistema}: Testa todos os componentes do sistema e replicação em tempo de execução; \bitem{iv}{Teste de Aceitação}: Verifica aceitação dos requisitos do usuário.
+                           
+                \item \tb{Dimensão de qualidade:} Irá determinar os atributos que estão sendo o foco do teste. Alguns exemplos destes são: \bitem{i}{Teste Funcional}: Este irá testará se as funcionalidades estarão funcionando conforme os requisitos; \bitem{ii}{Teste de Segurança}: Verificará potenciais falhas de segurança que ponham em risco os usuários do sistema, seus dados sensíveis, o sistema em si, entre outros; \bitem{iii}{Teste de Stress}: Verificará potenciais máximos ; \bitem{iv}{Teste de Desempenho}: Versará sobre tempo de execução de tarefas; \bitem{iv}{Teste de Usabilidade}: Versará sobre os testes qualidade de uso do ponto de vista do usuário.
+            \end{itemize}
+        }
+        
+        % Question 3
+        \question{Considere uma aplicação de software com ampla cobertura de testes unitários automatizados. Nesse caso, é necessário realizar testes de integração, uma vez que grande parte das unidades do sistema já foram testadas? Por que os testes de integração são necessários?}
+        \answer{
+           Sim, mesmo um código tendo alta cobertura em termos de testes unitário, isso \tb{significa apenas que cada componente individual está com alta cobertura de testes}, isto é, \tb{não significa que as interações entre os componentes do \ssw estarão bem testadas}. Dessa forma, os testes de integração são necessários para fazer justamente essa testagem inter-modular.
+        }
+
+        % Question 4
+        \question{ Quando o desenvolvimento de software adota a prática de TDD, são necessários testes de integração e testes de sistema? Por que?}
+        \answer{ Mesmo no TDD ainda faz-se necessário testes de integração tendo em vista que mesmo que os componentes e seus testes tenham sido previamente bem pensados e executados, nada garante que na orquestração dos componentes não houve um erro não previsto em cada unidade modular.
+        }
+        % \newpage
+        
+         % Question 5
+        \question{Por que mudanças são inevitáveis em sistemas de software? Indique uma forma de diminuir a degradação através da mudança.}
+        \answer{A vida muda, o mundo muda e o que os usuários precisam do \ssw também muda. Para Heráclito, a mudança é inerente à experiência humana. Dado que o \ssw é volátil, é de se esperar que ele tenha que mudar e se adaptar às novas expectativas dos usuários sobre eles. Portanto, ele deve portar novas \tit{features}, remover outras, corrigir erros e falhas, se portar à novos dispositivos, ser compatível com outros sistemas/dispositivos, se adaptar à novas legislações. Ou seja, para um \ssw se manter ativo, faz-se necessário que ele continue buscando se aprimorar e amadurecer. Por conseguinte,  a fim de diminuir a degradação, é de suma importância manter uma rotina responsável de manutenção através abordagens de \vv \ constantes em conjunto à refatoração e redesenho de trechos do sistema que estejam tendendo a se tornarem legados e obsoletos. Para, desse modo, manter o \ssw com uma arquitetura limpa e extensível (com baixo acoplamento e alta coesão) e mantendo os melhores padrões de implementação.
+        }     
+    
+    \end{enumerate}
+        
+    
+\end{document}
